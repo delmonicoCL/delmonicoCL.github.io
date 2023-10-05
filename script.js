@@ -7,6 +7,7 @@ function isNumber(evt) {
     return true;
 }
 
+
 document.addEventListener
 (
     "DOMContentLoaded",
@@ -23,10 +24,10 @@ document.addEventListener
             var numerodeInvitados = document.getElementById('numerodeInvitados').value;
         
                 // Si calificacion está vacío, generar una alerta
-            if (!calificacion) {
-                alert('La CALIFICACION no puede estar VACIA');
-                return;
-            }
+                if (!calificacion && calificacion !== 0) {
+                    alert('La CALIFICACION no puede estar VACIA');
+                    return;
+                }
                 
             // Si cuentaTotal está vacío, generar una alerta
             if (!cuentaTotal) {
@@ -61,10 +62,4 @@ document.addEventListener
 
     }
 );
-
-
-
-
-
-
 

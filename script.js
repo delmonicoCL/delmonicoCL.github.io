@@ -1,20 +1,21 @@
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
 document.addEventListener
 (
     "DOMContentLoaded",
     function()
     {
      
-        function isNumber(evt) {
-            evt = (evt) ? evt : window.event;
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                return false;
-            }
-            return true;
-        }
-            // Previene el envío del formulario y la recarga de la página
-            document.querySelector('#propina-form').onsubmit = function(event) {
-            event.preventDefault(); 
+       
+        document.querySelector('#propina-form').onsubmit = function(event) {
+            event.preventDefault(); // Previene el envío del formulario y la recarga de la página
         
             // Obtener los valores del formulario
             var cuentaTotal = document.getElementById('cuentaTotal').value;
@@ -60,6 +61,9 @@ document.addEventListener
 
     }
 );
+
+
+
 
 
 

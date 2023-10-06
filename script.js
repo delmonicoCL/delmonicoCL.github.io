@@ -23,7 +23,7 @@ document.addEventListener
             var calificacion = parseFloat(document.getElementById('calificacion').value);
             var numerodeInvitados = document.getElementById('numerodeInvitados').value;
         
-                // Si calificacion está vacío, generar una alerta
+            // Si calificacion está vacío, generar una alerta
                 if (!calificacion && calificacion !== 0) {
                     alert('La CALIFICACION no puede estar VACIA');
                     return;
@@ -44,13 +44,15 @@ document.addEventListener
         
             // Calcular la propina por persona y el total por persona
             var propina = (parseFloat(cuentaTotal) * calificacion) / numerodeInvitados;
-            var totalxPersona = (parseFloat(cuentaTotal) + (parseFloat(cuentaTotal) * calificacion)) / numerodeInvitados;
-        
-            // Si la propina por persona es menor que 0.50, establecerla en 0.50
-            if (propina < 0.50) {
-                propina = 0.50;
-            }
-        
+                       
+          // Si la propina por persona es menor que 0.50, establecerla en 0.50
+          if (propina < 0.50 && propina !== 0) {
+            propina = 0.50;
+          }
+
+          var totalxPersona = parseFloat(cuentaTotal) / numerodeInvitados + propina;	
+
+
             // Mostrar los resultados en la página
             document.getElementById('propina').textContent = propina.toFixed(2);
             document.getElementById('totalxPersona').textContent = totalxPersona.toFixed(2);
@@ -62,4 +64,3 @@ document.addEventListener
 
     }
 );
-

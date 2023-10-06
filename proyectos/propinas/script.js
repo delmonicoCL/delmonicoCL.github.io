@@ -1,0 +1,66 @@
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode < 48 || charCode > 57) {
+        return false;
+    }
+    return true;
+}
+
+
+document.addEventListener
+(
+    "DOMContentLoaded",
+    function()
+    {
+     
+       
+        document.querySelector('#propina-form').onsubmit = function(event) {
+            event.preventDefault(); // Previene el envío del formulario y la recarga de la página
+        
+            // Obtener los valores del formulario
+            var cuentaTotal = document.getElementById('cuentaTotal').value;
+            var calificacion = parseFloat(document.getElementById('calificacion').value);
+            var numerodeInvitados = document.getElementById('numerodeInvitados').value;
+        
+            // Si calificacion está vacío, generar una alerta
+                if (!calificacion && calificacion !== 0) {
+                    alert('La CALIFICACION no puede estar VACIA');
+                    return;
+                }
+                
+            // Si cuentaTotal está vacío, generar una alerta
+            if (!cuentaTotal) {
+                alert('El TOTAL DE LA CUENTA no puede estar vacío.');
+                return;
+            }
+        
+            // Si numerodeInvitados es igual a "0" o está vacío, establecerlo en "1"
+            if (numerodeInvitados === "0" || numerodeInvitados === "") {
+                numerodeInvitados = 1;
+            } else {
+                numerodeInvitados = parseInt(numerodeInvitados);
+            }
+        
+            // Calcular la propina por persona y el total por persona
+            var propina = (parseFloat(cuentaTotal) * calificacion) / numerodeInvitados;
+                       
+          // Si la propina por persona es menor que 0.50, establecerla en 0.50
+          if (propina < 0.50 && propina !== 0) {
+            propina = 0.50;
+          }
+
+          var totalxPersona = parseFloat(cuentaTotal) / numerodeInvitados + propina;	
+
+
+            // Mostrar los resultados en la página
+            document.getElementById('propina').textContent = propina.toFixed(2);
+            document.getElementById('totalxPersona').textContent = totalxPersona.toFixed(2);
+        
+            // Mostrar el contenedor de resultados
+            document.getElementById('results').style.display = 'block';
+        }
+        
+
+    }
+);

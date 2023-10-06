@@ -1,50 +1,374 @@
-<html>
-<head>
-<title>Calculadora de Propina</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Marcelo Carvajal  | Web Developer</title>
 
-</head>
-<body>
-    <div class="custom-background" style="height: 100vh;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-         <div class="titulo"> <h1>Calculadora de Propina</h1>  </div>
-        
-        <form id="propina-form" class="needs-validation" novalidate>
-        <div class="form-group">
-          <label for="cuentaTotal">Total de la cuenta:</label>
-          <input type="text" class="form-control" id="cuentaTotal" onkeypress="return isNumber(event)">
-          <div class="invalid-feedback">
-            Por favor, ingresa el total de la cuenta.
-          </div>
+    <!--CSS de Bootstrap 4.2.1-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!--Mi estilo-->
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+
+    <!-- NAV BAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"> <img src="assets/img/logo_cs.png" alt="Logo"> </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Acerca de mí </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#work">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Comunicate</a>
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="calificacion">Calificación del servicio:</label>
-          <select class="form-control" id="calificacion" required>
-            <option value="">Selecciona una opción</option>
-            <option value="0">Horrible 0%</option>
-            <option value="0.05">Aceptable 5%</option>
-            <option value="0.1">Genial 10%</option>
-          </select>
-          <div class="invalid-feedback">
-            Por favor, selecciona una calificación del servicio.
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="numerodeInvitados">Número de comensales:</label>
-          <input type="number" class="form-control" id="numerodeInvitados" onkeypress="return isNumber(event)">
-
-        </div>
-        <button type="submit" class="btn btn-primary">Calcular</button>
-      </form>
-
-      <div id="results" class="mt-4" style="display: none;">
-        <h2>Resultados:</h2>
-        <p>Propina por persona: <span id="propina"></span></p>
-        <p>Total por persona: <span id="totalxPersona"></span></p>
       </div>
- </div>
-</body>
+    </nav>
+
+  <!-- FIN NAV BAR -->
+
+
+  <!-- HEADER HERO -->
+
+    <header class="hero text-dark text-right pt-5 mt-5">
+      <div class="container">
+        <h1 class="display-1 font-weight-bold my-3">Desarrollar Web</h1>
+        <h3 class="display-3 font-weight-bold ">HTML, JS, CSS, PHP y SQL</h3>
+        <a href="#work" class="btn btn-outline-info btn-lg mr-4">HABLEMOS</a>
+            
+      </div>
+    </header>
+
+  <!-- FIN HEADER HERO -->
+
+
+  <!-- PRIMERA SECCION -->
+
+    <section id="about" class="container text-center my-5">
+      <h2 class="display-3 font-weight-bold my-4">Acerca de mí</h2>
+      <p class="my-4">¡Hola! Soy Marcelo, apasionado desarrollador web. Creo que la web es el futuro y me encanta explorar nuevas tecnologías y lenguajes para construir experiencias en línea memorables. Siempre buscando oportunidades para aprender y crecer en este emocionante campo. ¡Sígueme para ver mis últimos proyectos y descubrir las últimas tendencias en desarrollo web!".</p>
+
+      <div class="row">
+        <div class="col-md-4">
+          <i class="fas fa-camera fa-3x my-3"></i>
+          <h3 class="my-3">Pasatiempos</h3>
+          <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-bullhorn fa-3x my-3"></i>
+          <h3 class="my-3">Filosofia de Vida</h3>
+          <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="far fa-map fa-3x my-3"></i>
+          <h3 class="my-3">Mis Proyectos</h3>
+          <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </section>
+
+  <!-- FIN PRIMERA SECCION -->
+
+
+
+    <!-- PRIMER BANNER -->
+
+    <div class="container my-5 py-3">
+      <div class="row">
+        <div class="col-4 p-4 text-right">
+          <h2 class="font-weight-bold">Trabajo con los siguientes lenguajes:</h2>
+        </div>
+        <div class="col-8 bg-secondary text-white rounded pt-4 pb-5">
+          <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+              <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#blogCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <div class="carousel-inner">
+
+              <div class="carousel-item active text-center">
+                <div class="row">
+                  <div class="col-3">
+                    <i class="fab fa-codepen fa-5x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="CodePen"></i>
+                  </div>
+                  <div class="col-3">
+                    <i class="fab fa-apper fa-4x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Apper"></i>
+                  </div>
+                  <div class="col-3">
+                    <i class="fab fa-angrycreative fa-4x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Angry Creative"></i>
+                  </div>
+                  <div class="col-3">
+                    <i class="fab fa-google fa-4x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Google"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item text-center">
+                <div class="row">
+                  <div class="col-3">
+                    <i class="fab fa-500px fa-2x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="500px"></i>
+                  </div>
+                  <div class="col-3">
+                    <i class="fab fa-apple fa-2x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Apple"></i>
+                  </div>
+                  <div class="col-3">
+                    <i class="fab fa-aviato fa-2x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Aviato"></i>
+                  </div>
+                  <div class="col-3">
+                    <i class="fab fa-d-and-d fa-2x" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dungeons & Dragons"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- FIN PRIMER BANNER -->
+
+
+    <!-- SECTION DE FRANJA DE COLOR COMPLETA (contenedor padre) -->
+    <section class="container-fluid my-5 p-5 bg-info" id="work">
+      <h2 class="display-4 text-center font-weight-bold text-light mb-5">Mis PROYECTOS</h2>
+      
+      <!-- CARDS DECKS -->
+
+        <!-- 1 CARD -->
+      <div class="card-deck">
+        <div class="card">
+          <img class="card-img-top" src="assets/img/card-1.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Calculadora Propinas</h5>
+            <p class="card-text"> El reto es crear una web que contenga un formulario para realizar los cálculos de la propina adecuada en función del servicio recibido y otros factores. Las variables que contemplaremos son el número de comensales que han sentado en la mesa, el total de la cuenta a pagar y la calificación del servicio recibido. La calculadora nos dará la cantidad de propina por persona que deberíamos dejar.</p>
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#asado">Ver más</button>
+          </div>
+        </div>
+        
+        <!-- 2 CARD -->
+
+        <div class="card">
+          <img class="card-img-top" src="assets/img/card-2.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Laia, Iluminanos</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt a culpa doloremque voluptatem dicta nam. Maxime ipsum, consequatur quos error fuga excepturi quo. Laudantium optio pariatur laboriosam modi, ea molestias?</p>
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#papas">Ver más</button>
+          </div>
+        </div>
+
+        <!-- 3 CARD -->
+
+        <div class="card">
+          <img class="card-img-top" src="assets/img/card-3.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">VideoJuego</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati facere quibusdam sint id laborum magni velit ducimus corporis facilis qui architecto dolor, accusamus eveniet exercitationem fugit. Quod autem neque ducimus.</p>
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#salmones">Ver más</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!--fin cards -->
+
+
+
+      <!-- APERTURA DE TARJETAS -->
+
+      <!-- primera apertura tarjeta -->
+    <div class="modal fade" id="asado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Calculadora Propinas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid mb-3" src="assets/img/card-1.jpg" alt="Card image cap">
+
+            <p>
+              El reto es crear una web que contenga un formulario para realizar los cálculos de la propina adecuada en función del servicio recibido y otros factores. Las variables que contemplaremos son el número de comensales que han sentado en la mesa, el total de la cuenta a pagar y la calificación del servicio recibido. La calculadora nos dará la cantidad de propina por persona que deberíamos dejar.
+                           </p>
+
+            <p> Todas las variables mencionadas son requeridas, con excepción del número de comensales que si no se proporciona , se asume que es sólo uno. Si el usuario no indicara alguna de las otras dos informaciones , deberíamos mostrar un aviso y no haríamos el cálculo porque nos faltarían datos . La calificación del servicio va desde genial (10%), aceptable (5%) y horrible (0%)
+            
+            <p>  Este porcentaje se calcula sobre el importe total de su factura. Una vez calculado, la propina a dejar debe repartirse equitativamente entre el número de personas que estaban en la comida. </p>
+            <a href="https://www.otrasitio.com" class="btn btn-primary" target="_blank">Visitar Proyecto</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- fin apertura tarjeta 1 -->
+
+      <!-- segunda apertura tarjeta -->
+    <div class="modal fade" id="papas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Laia, Iluminanos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid mb-3" src="assets/img/card-2.jpg" alt="Card image cap">
+
+            <p>
+              El reto es crear una web que contenga un formulario para realizar los cálculos de la propina adecuada en función del servicio recibido y otros factores. Las variables que contemplaremos son el número de comensales que han sentado en la mesa, el total de la cuenta a pagar y la calificación del servicio recibido. La calculadora nos dará la cantidad de propina por persona que deberíamos dejar.
+                           </p>
+
+            <p> Todas las variables mencionadas son requeridas, con excepción del número de comensales que si no se proporciona , se asume que es sólo uno. Si el usuario no indicara alguna de las otras dos informaciones , deberíamos mostrar un aviso y no haríamos el cálculo porque nos faltarían datos . La calificación del servicio va desde genial (10%), aceptable (5%) y horrible (0%)
+            
+            <p>  Este porcentaje se calcula sobre el importe total de su factura. Una vez calculado, la propina a dejar debe repartirse equitativamente entre el número de personas que estaban en la comida. </p>
+             
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- fin apertura tarjeta 2 -->
+
+      <!-- tercera apertura tarjeta -->
+
+    <div class="modal fade" id="salmones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Salmones de CHINA</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid mb-3" src="assets/img/card-3.jpg" alt="Card image cap">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- fin apertura tarjeta 3 -->
+
+
+      <!-- contacto -->
+          <!-- <section id="contact" class="container my-5">
+            <h2 class="display-3 font-weight-bold text-center my-4">Contáctame</h2>
+            <p class="text-center my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <div class="typeform-widget" data-url="https://franibe.typeform.com/to/AYVtoJ" style="width: 100%; height: 500px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;"> powered by <a href="https://admin.typeform.com/signup?utm_campaign=AYVtoJ&utm_source=typeform.com-13260463-Basic&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>
+          </section> -->
+          <!-- fin contacto -->
+      <!-- contacto 2 -->
+
+
+
+  <!-- seccion titulo contactame -->    
+    <section class="container my-5">
+      <h2 class="display-3 font-weight-bold text-center my-4">Contáctame</h2>
+      <p class="my-4 text-center">Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua.</p>
+  
+   <!-- Formulario de Contacto 1 -->
+
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput"
+          class="font-weight-bold">Nombre</label>
+          <input type="text" class="form-control" id="formGroupExampleInput"
+          placeholder="Ingresa tu nombre">
+        </div>
+          
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="font-weight-bold">Correo
+          electrónico</label>
+          <input type="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" placeholder="Ingresa tu correo        elecrtrónico">
+        </div>
+          
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1"
+          class="font-weight-bold">Mensaje</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1"
+          rows="3" placeholder="Escribe tu mensaje"></textarea>
+        </div> 
+     
+        <!-- boton de enviar -->
+        <div class="contact-button-inner text-right">
+        <button type="button" class="btn btn-lg btn-info">Enviar</button>
+        </div>
+
+    <!-- fin formulario contacto 1 -->
+
+
+        <!-- Boton de chequear en el formulario -->
+        <!-- <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me
+        out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button> -->
+        </form>
+
+      </section>
+
+   
+     <!-- footer -->
+
+    <footer class="bg-dark text-center text-light py-3">
+      <p>Marcelo Carvajal 2023. Todos los derechos reservados.</p>
+    </footer>
+    <!-- fin footer -->
+
+
+
+
+    <!--jQuery 3.3.1 sin slim-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Popper JS 1.14.3-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <!--Bootstrap JS 4.2.1-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!--Mi script-->
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
